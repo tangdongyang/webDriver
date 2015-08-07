@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 该xml文件用于建模，将一些常用的抽取出来，放在里面，在excel中，使用xml:username，表示取值为root -->
+<root>
+	<modeling name="searchIndexXpath" value="//input[@id='kw']" />
+	<modeling name="searchIndexButton" value="//*[@id='su']" />
+	<modeling name="firstTabXpath" value="//div[@id='content_left']/table[2]/tbody/tr/td/h3/a" />
+	<modeling name="searchValue" value="唐东洋" />
+</root>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 该xml文件用于记录action的名字和类，程序一开始，就先加载这个文件 -->
+<!-- 采用webdiver -->
+<root>
+	<!--
+		说明：打开指定的浏览器
+		参数说明：
+		<1>浏览器类型(ie,ff,chrome)
+	 	<2>要打开的网址
+	 	<3>执行机地址，如果不填则默认在本机执行
+	-->
+	<action name="open" value="com.jd.o2o.test.webdriver.base.Open"/>
+	
+	<!-- 
+		说明：关闭浏览器 
+		用法：close
+	-->
+	<action name="close" value="com.jd.o2o.test.webdriver.base.Close"/>
+	
+	<!-- 
+		说明：检查文字或者控件是否存在
+	 	参数说明：
+	 	<1>控件/文字的xpath
+		<2>期望显示的值，如果是检查文字，需要填写此项。如果是检查控件，此项填写null
+	 	<3>true（应该显示）/fasle（不应该显示）
+	-->
+	<action name="check" value="com.jd.o2o.test.webdriver.base.Check"/>
+	
+	<!-- 
+		说明：点击
+		用法：click 点击的地方xpath
+	-->
+	<action name="click" value="com.jd.o2o.test.webdriver.base.Click"/>
+	
+	<!-- 
+		说明：跳向不同的frame
+		用法：switchFrame 跳向frame的xpath
+			switchFrame rootFrame
+	-->
+	<action name="switchFrame" value="com.jd.o2o.test.webdriver.base.SwitchFrame"/>
+	
+	<!-- 
+		说明：输入
+		用法：type 输入内容的xpath 输入的内容 
+	-->
+	<action name="type" value="com.jd.o2o.test.webdriver.base.Type"/>
+	
+	<!-- 
+		说明：等待
+		用法：wait 等待的时间（单位：毫秒）
+	-->
+	<action name="wait" value="com.jd.o2o.test.webdriver.base.Wait"/>
+	
+	<!-- 
+		说明：切换窗口（可以使用，但是浏览器不兼容，不建议使用）
+	-->
+	<action name="switchHandler" value="com.jd.o2o.test.webdriver.base.SwitchHandler"/>
+	
+	<!-- 
+		说明：关闭窗口（切换窗口后，需要关闭）
+	-->
+	<action name="closeHandler" value="com.jd.o2o.test.webdriver.base.CloseHandler"/>
+	
+	<!-- 
+		说明：下拉框
+		用法：select select元素的xpath 要选择的值
+	-->
+	<action name="select" value="com.jd.o2o.test.webdriver.base.Select"/>
+	
+	<!-- 
+		说明：移动到某个元素，会显示一些控件，然后点击显示的控件
+		用法：moveToElementAndClick 移动到元素的xpath 要点击元素的xpath
+	-->
+	<action name="moveToElementAndClick" value="com.jd.o2o.test.webdriver.base.MoveToElementAndClick"/>
+	
+	<!-- 
+		说明：执行javascript代码
+		用法：runJS javascript代码
+			runJS javascript代码	变量名称【可选】
+	 -->
+	<action name="runJS" value="com.jd.o2o.test.webdriver.base.RunJS"/>
+	
+	
+	<!-- 
+		说明：屏幕截图
+		用法：screenshot 图片名称（默认存放在param/des目录下）
+	 -->
+	<action name="screenshot" value="com.jd.o2o.test.webdriver.base.Screenshot"/>
+	
+	<!-- 
+		说明：在指定xpath的地方敲回车
+		用法：enter	需要敲回车的xpath
+	 -->
+	<action name="enter" value="com.jd.o2o.test.webdriver.base.Enter"/>
+	
+	<!-- 
+		说明：利用请求的方式登录
+		参数说明：
+		<1>登录请求URL，例如：http://XXXX.action?username=XX&password=XX
+	 -->
+	<action name="loginByRequest" value="com.jd.o2o.test.webdriver.base.request.LoginByRequest"/>
+	
+	<!-- 
+		说明：执行请求(post/get)
+		参数说明：
+		<1>待执行的请求URL，例如：http://XXXX.action?username=XX&password=XX
+		<2>执行请求的方式：post/get
+	 -->
+	<action name="executeRequest" value="com.jd.o2o.test.webdriver.base.request.ExecuteRequest"/>
+	
+	<!-- 
+		说明：处理javascript的alert或confirm弹出框
+		参数说明:
+	 	1、操作项：总共分成3种(yes-确定，cancel-取消，比较弹出框的字符)
+	 	   	<1>yes - 点击确定
+	 		<2>cancel - 点击取消
+	 		<3>字符串：用该字符串与弹出框的内容比较(相等-通过，不相等-失败)
+	 -->
+	<action name="dealWithAlert" value="com.jd.o2o.test.webdriver.base.DealWithAlert"/>
+	
+	<!-- 
+		说明：判断2张图片是否相等.如果图片相等则删除截图，不相等则转移到error目录做日志(整张图对比)
+		参数说明:
+		<1>源图片名称 ,源图片路径：param/testfile/src/
+	 	<2>目标图片名称 ,目的图片路径：param/testfile/des/
+	 	<3>期待值（true-期待相等，false-期待不相等）
+	 -->
+	<action name="pictureCompare" value="com.jd.o2o.test.webdriver.base.PictureCompare"/>
+	
+		<!-- 
+		说明：指定图片的对比区域进行比较.如果图片相等则删除截图，不相等则转移到error目录做日志（部分区域对比）
+		参数说明:
+		<1>源图片名称 ,源图片路径：param/testfile/src/
+	 	<2>目标图片名称 ,目的图片路径：param/testfile/des/
+	 	<3>期待值（true-期待相等，false-期待不相等）
+	 	<4>对比区域的起始点坐标（例如：320,220(宽,高):表示从图片的320,220坐标点开始截图比较）
+	 	<5>对比区域宽度
+	 	<6>对比区域高度
+	 -->
+	<action name="pictureCompareOfArea" value="com.jd.o2o.test.webdriver.base.PictureCompareOfArea"/>
+</root>

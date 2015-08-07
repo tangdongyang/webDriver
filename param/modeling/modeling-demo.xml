@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 该xml文件用于建模，将一些常用的抽取出来，放在里面，在excel中，使用xml:username，表示取值为root -->
+<root>
+	<modeling name="usernameXpath" value="//input[@id='username']" />
+	<modeling name="username" value="root" />
+	<modeling name="password" value="123456" />
+</root>

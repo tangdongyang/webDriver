@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="TestIOpenstackClient" verbose="2" allow-return-values="true">
+    <test name="TestIOpenstackClient">
+        <classes>
+        	<class name="com.jd.test.testcase.Testjbox">
+            </class>
+            <class name="com.jd.test.testcase.Testjbox2">
+            </class>
+        </classes>
+    </test>
+</suite>
